@@ -144,6 +144,11 @@ fun CameraView.invokeOnCodeScanned(barcodes: List<Barcode>, scannerFrame: CodeSc
     code.putString("type", type.unionValue)
     code.putString("value", barcode.rawValue)
 
+    barcode.rawBytes?.let { bytes ->
+//      val base64 = android.util.Base64.encodeToString(bytes, android.util.Base64.NO_WRAP)
+      code.putArray("value", bytes)
+    }
+
     barcode.boundingBox?.let { rect ->
       val frame = Arguments.createMap()
       frame.putInt("x", rect.left)
