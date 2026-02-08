@@ -24,7 +24,8 @@
     "ios/**/*.swift",
     "app.plugin.js",
     "VisionCamera.podspec",
-    "README.md"
+    "README.md",
+    "tsconfig.json"
   ],
   "scripts": {
     "typecheck": "tsc --noEmit",
