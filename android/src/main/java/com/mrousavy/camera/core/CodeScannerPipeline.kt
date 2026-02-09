@@ -36,6 +36,7 @@ class CodeScannerPipeline(val configuration: CameraConfiguration.CodeScanner, va
       scanner.process(inputImage)
         .addOnSuccessListener { barcodes ->
           if (barcodes.isNotEmpty()) {
+            Log.i(CameraView.TAG, "On barcodes scanned");
             callback.onCodeScanned(barcodes, CodeScannerFrame(inputImage.width, inputImage.height))
           }
         }

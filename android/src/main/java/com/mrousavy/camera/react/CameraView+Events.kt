@@ -144,7 +144,9 @@ fun CameraView.invokeOnCodeScanned(barcodes: List<Barcode>, scannerFrame: CodeSc
     code.putString("type", type.unionValue)
     code.putString("value", barcode.rawValue)
 
+    Log.i(CameraView.TAG, "Invoke code scanned");
     barcode.rawBytes?.let { bytes ->
+      Log.i(CameraView.TAG, "Raw bytes found");
       val base64 = android.util.Base64.encodeToString(bytes, android.util.Base64.NO_WRAP)
       code.putString("value", base64)
     }
